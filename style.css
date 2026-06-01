@@ -1,0 +1,300 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    overflow: hidden;
+}
+
+/* ─── Background ─── */
+.bg {
+    position: fixed;
+    inset: 0;
+    background-image: url('/sunset-retrowave-3840x2160-15305.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.75) saturate(1.2);
+    z-index: 0;
+}
+
+.bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.15) 100%);
+}
+
+/* ─── Glass Card ─── */
+.glass-card {
+    position: relative;
+    z-index: 1;
+    width: 420px;
+    padding: 44px 40px 36px;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(22px) saturate(180%);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    animation: fadeUp 0.5s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(28px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ─── Logo / Header ─── */
+.logo-area {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.avatar-icon {
+    width: 68px;
+    height: 68px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #ff00d9, #5416B5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    box-shadow: 0 4px 20px #5416B580;
+}
+
+.logo-area h2 {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.logo-area p {
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+/* ─── Form ─── */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.input-group label {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+.input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 14px;
+    width: 17px;
+    height: 17px;
+    color: rgba(255, 255, 255, 0.55);
+    pointer-events: none;
+}
+
+.input-wrap input {
+    width: 100%;
+    padding: 13px 44px 13px 42px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border 0.25s, background 0.25s, box-shadow 0.25s;
+}
+
+.input-wrap input::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.input-wrap input:focus {
+    border-color: rgba(255, 255, 255, 0.55);
+    background: rgba(255, 255, 255, 0.16);
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.08);
+}
+
+.toggle-pass {
+    position: absolute;
+    right: 13px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    padding: 0;
+    transition: color 0.2s;
+}
+
+.toggle-pass:hover {
+    color: #fff;
+}
+
+.toggle-pass svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ─── Options Row ─── */
+.options-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -4px;
+}
+
+.remember {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    cursor: pointer;
+}
+
+.remember input[type="checkbox"] {
+    accent-color: #667eea;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+
+.forgot {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.forgot:hover {
+    color: #fff;
+}
+
+/* ─── Buttons ─── */
+.btn-login {
+    width: 100%;
+    padding: 14px;
+    border-radius: 12px;
+    border: none;
+    background: linear-gradient(135deg, #ff00d9, #5416B5);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: opacity 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: 0 4px 18px #5416B573;
+    margin-top: 4px;
+}
+
+.btn-login:hover {
+    opacity: 0.92;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(102, 126, 234, 0.55);
+}
+
+.btn-login:active {
+    transform: translateY(0);
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.btn-google {
+    width: 100%;
+    padding: 13px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 0.92rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background 0.2s, border 0.2s;
+}
+
+.btn-google:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.38);
+}
+
+/* ─── Sign Up Link ─── */
+.signup-link {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.88rem;
+    margin-top: 22px;
+}
+
+.signup-link a {
+    color: #a78bfa;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s;
+}
+
+.signup-link a:hover {
+    color: #c4b5fd;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 480px) {
+    .glass-card {
+        width: 92vw;
+        padding: 36px 24px 28px;
+    }
+}
